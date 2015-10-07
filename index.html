@@ -7,10 +7,10 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-
+        
   <style>
   /*combinaciones*/
   .turquesa{background: #33cccc;}
@@ -24,17 +24,17 @@
 <div class="navbar-fixed">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="logo.png" alt=""></a>
+      <a id="logo-container" href="#" class="brand-logo"><img src="assets/logo.png" alt=""></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Tener un sitio web</a></li>
-        <li><a href="#">Vender en internet</a></li>
-        <li><a href="#">Mejorar mi imagen</a></li>
+        <li><a href="/">Tener un sitio web</a></li>
+        <li><a href="vender-en-internet.html">Vender en internet</a></li>
+        <li><a href="mejorar-mi-imagen.html">Mejorar mi imagen</a></li>
       </ul>
   
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Tener un sitio web</a></li>
-        <li><a href="#">Vender en internet</a></li>
-        <li><a href="#">Mejorar mi imagen</a></li>
+        <li><a href="/">Tener un sitio web</a></li>
+        <li><a href="vender-en-internet.html">Vender en internet</a></li>
+        <li><a href="mejorar-mi-imagen.html">Mejorar mi imagen</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse">
         <i class="material-icons">reorder</i>
@@ -57,7 +57,7 @@
           </div>
             <div class="col s12 l6">
            <!-- ipad -->
-           <img src="tablet.png" alt="">
+           <img src="assets/tablet.png" alt="" width="350">
             </div>
             
         </div>
@@ -66,7 +66,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="background1-color.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="assets/background1-color.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -131,7 +131,7 @@ Logramos unir los últimos estándares tecnológicos con un diseño amigable don
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="assets/background1.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -173,29 +173,34 @@ Logramos unir los últimos estándares tecnológicos con un diseño amigable don
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="assets/background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
 
 
 
-  <div class="container" id="contacto_web">
-
+<div class="container" id="contacto_web">
   
     <div class="row">
-      <h5 class="center teal-text">Dejanos tus datos. Pronto nos comunicaremos.</h5>
+      <!-- mensajes form -->
+      <div id="message" class="center"></div>
     </div>
+    
     <div class="row">
-      <form class="col s12">
+      <form role="form" class="col s12" action="form_ajax/process_contact.php" id="contactform">
+        <input type="hidden" name="enviado_desde" value="index - Tener un sitio web">
+        <div class="row">
+          <h5 class="center teal-text">Dejanos tus datos. Pronto nos comunicaremos.</h5>
+        </div>
         <div class="row">
           <div class="input-field col s12 m6 l6">
             <i class="material-icons prefix">perm_identity</i>
-            <input placeholder="Juan Gomez" id="nombre_apellido" type="text" class="validate">
+            <input placeholder="Bruce Banner" id="nombre_apellido" name="nombre_apellido" type="text" class="validate">
             <label for="nombre">Nombre Apellido</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <i class="material-icons prefix">business</i>
-            <input placeholder="opcional" id="empresa" type="text" >
+            <input placeholder="opcional" id="empresa" name="empresa" type="text" >
             <label for="apellido">Empresa</label>
           </div>
         </div>
@@ -203,39 +208,25 @@ Logramos unir los últimos estándares tecnológicos con un diseño amigable don
         <div class="row">
           <div class="input-field col s12 m6 l6">
             <i class="material-icons prefix">language</i>
-            <input placeholder="http://www." id="sitioweb" type="text">
+            <input placeholder="http://www." id="sitioweb" name="sitioweb" type="text">
             <label for="password">Sitio web actual? (direccion URL)</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <i class="material-icons prefix">email</i>
-            <input placeholder="nombre@dominio.ext" id="email" type="email" class="validate">
+            <input placeholder="nombre@dominio.ext" name="email" id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
         </div>
-        <!--
-         <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Empresa" id="empresa" type="text" >
-            <label for="empresa">Empresa</label>
-          </div>
-          <div class="input-field col s6">
-            <input id="ciudad" type="text">
-            <label for="ciudad">Ciudad</label>
-          </div>
-        </div>-->
-
-        
-
 
         <div class="row">
           <div class="input-field col s12 m12 l12">
           <i class="material-icons prefix">comment</i>
-             <textarea id="mensaje" class="materialize-textarea"></textarea>
+             <textarea id="mensaje" name="mensaje" class="materialize-textarea"></textarea>
             <label for="disabled">Mensaje</label>
           </div>
         </div>
         
-        <button class="btn waves-effect waves-light " type="submit" name="action">Enviar
+        <button class="btn waves-effect waves-light " type="submit" id="submit" name="action">Enviar
         <i class="material-icons right">done</i>
       </button>
         
@@ -321,9 +312,9 @@ Logramos unir los últimos estándares tecnológicos con un diseño amigable don
 
   <!--  Scripts-->
   <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-  <script src="js/jquery.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/start.js"></script>
-
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/materialize.js"></script>
+  <script src="assets/js/start.js"></script>
+  <script src="form_ajax/js/form_envio.js"></script>
   </body>
 </html>
